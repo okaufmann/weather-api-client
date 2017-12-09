@@ -1,0 +1,9 @@
+{
+    "composerProjectName": "weather-api-client",
+    "composerProjectVendor": "weather-api-client",
+    "srcBasePath": "src",
+    "packagePath": "",
+    "invokerPackage": "Okaufmann\\WeatherApiClient",
+    "gitUserId": "okaufmann",
+    "gitRepoId": "weather-api-client"
+}
