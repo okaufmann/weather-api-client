@@ -1,15 +1,15 @@
-# Okaufmann\WeatherApiClient\MeasuredvaluesApi
+# Okaufmann\WeatherApiClient\MeasuredValuesApi
 
 All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**stationsGet**](MeasuredvaluesApi.md#stationsGet) | **GET** /stations/ | 
-[**stationsStationIdGet**](MeasuredvaluesApi.md#stationsStationIdGet) | **GET** /stations/{station_id} | 
-[**stationsStationIdRainfallGet**](MeasuredvaluesApi.md#stationsStationIdRainfallGet) | **GET** /stations/{station_id}/rainfall | 
-[**stationsStationIdSunshineGet**](MeasuredvaluesApi.md#stationsStationIdSunshineGet) | **GET** /stations/{station_id}/sunshine | 
-[**stationsStationIdTemperatureGet**](MeasuredvaluesApi.md#stationsStationIdTemperatureGet) | **GET** /stations/{station_id}/temperature | 
-[**weatherPostalCodeGet**](MeasuredvaluesApi.md#weatherPostalCodeGet) | **GET** /weather/{postal_code}/ | 
+[**stationsGet**](MeasuredValuesApi.md#stationsGet) | **GET** /stations/ | 
+[**stationsStationIdGet**](MeasuredValuesApi.md#stationsStationIdGet) | **GET** /stations/{station_id} | 
+[**stationsStationIdRainfallGet**](MeasuredValuesApi.md#stationsStationIdRainfallGet) | **GET** /stations/{station_id}/rainfall | 
+[**stationsStationIdSunshineGet**](MeasuredValuesApi.md#stationsStationIdSunshineGet) | **GET** /stations/{station_id}/sunshine | 
+[**stationsStationIdTemperatureGet**](MeasuredValuesApi.md#stationsStationIdTemperatureGet) | **GET** /stations/{station_id}/temperature | 
+[**weatherPostalCodeGet**](MeasuredValuesApi.md#weatherPostalCodeGet) | **GET** /weather/{postal_code}/ | 
 
 
 # **stationsGet**
@@ -23,16 +23,21 @@ Method | HTTP request | Description
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
+$config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
+// $config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
 
-$api_instance = new Okaufmann\WeatherApiClient\Api\MeasuredvaluesApi();
+$apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $api_instance->stationsGet();
+    $apiInstance->stationsGet();
 } catch (Exception $e) {
-    echo 'Exception when calling MeasuredvaluesApi->stationsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MeasuredValuesApi->stationsGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -66,17 +71,22 @@ void (empty response body)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
+$config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
+// $config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
 
-$api_instance = new Okaufmann\WeatherApiClient\Api\MeasuredvaluesApi();
+$apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $station_id = 789; // int | ID of station from which the data should be returned
 
 try {
-    $api_instance->stationsStationIdGet($station_id);
+    $apiInstance->stationsStationIdGet($station_id);
 } catch (Exception $e) {
-    echo 'Exception when calling MeasuredvaluesApi->stationsStationIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MeasuredValuesApi->stationsStationIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -113,17 +123,22 @@ void (empty response body)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
+$config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
+// $config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
 
-$api_instance = new Okaufmann\WeatherApiClient\Api\MeasuredvaluesApi();
+$apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $station_id = 789; // int | ID of station from which the data should be returned
 
 try {
-    $api_instance->stationsStationIdRainfallGet($station_id);
+    $apiInstance->stationsStationIdRainfallGet($station_id);
 } catch (Exception $e) {
-    echo 'Exception when calling MeasuredvaluesApi->stationsStationIdRainfallGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MeasuredValuesApi->stationsStationIdRainfallGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -160,17 +175,22 @@ void (empty response body)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
+$config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
+// $config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
 
-$api_instance = new Okaufmann\WeatherApiClient\Api\MeasuredvaluesApi();
+$apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $station_id = 789; // int | ID of station from which the data should be returned
 
 try {
-    $api_instance->stationsStationIdSunshineGet($station_id);
+    $apiInstance->stationsStationIdSunshineGet($station_id);
 } catch (Exception $e) {
-    echo 'Exception when calling MeasuredvaluesApi->stationsStationIdSunshineGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MeasuredValuesApi->stationsStationIdSunshineGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -207,17 +227,22 @@ void (empty response body)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
+$config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
+// $config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
 
-$api_instance = new Okaufmann\WeatherApiClient\Api\MeasuredvaluesApi();
+$apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $station_id = 789; // int | ID of station from which the data should be returned
 
 try {
-    $api_instance->stationsStationIdTemperatureGet($station_id);
+    $apiInstance->stationsStationIdTemperatureGet($station_id);
 } catch (Exception $e) {
-    echo 'Exception when calling MeasuredvaluesApi->stationsStationIdTemperatureGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MeasuredValuesApi->stationsStationIdTemperatureGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -254,17 +279,22 @@ void (empty response body)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
+$config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('api_token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
+// $config = Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
 
-$api_instance = new Okaufmann\WeatherApiClient\Api\MeasuredvaluesApi();
+$apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $postal_code = 789; // int | Postal code for the location's forecast
 
 try {
-    $api_instance->weatherPostalCodeGet($postal_code);
+    $apiInstance->weatherPostalCodeGet($postal_code);
 } catch (Exception $e) {
-    echo 'Exception when calling MeasuredvaluesApi->weatherPostalCodeGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MeasuredValuesApi->weatherPostalCodeGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
