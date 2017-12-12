@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **stationsGet**
-> stationsGet()
+> string stationsGet()
 
 
 
@@ -35,7 +35,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
 );
 
 try {
-    $apiInstance->stationsGet();
+    $result = $apiInstance->stationsGet();
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeasuredValuesApi->stationsGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -47,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -56,12 +57,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **stationsStationIdGet**
-> stationsStationIdGet($station_id)
+> string stationsStationIdGet($station_id)
 
 
 
@@ -84,7 +85,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
 $station_id = 789; // int | ID of station from which the data should be returned
 
 try {
-    $apiInstance->stationsStationIdGet($station_id);
+    $result = $apiInstance->stationsStationIdGet($station_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeasuredValuesApi->stationsStationIdGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -99,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -113,7 +115,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **stationsStationIdRainfallGet**
-> stationsStationIdRainfallGet($station_id)
+> string stationsStationIdRainfallGet($station_id)
 
 
 
@@ -136,7 +138,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
 $station_id = 789; // int | ID of station from which the data should be returned
 
 try {
-    $apiInstance->stationsStationIdRainfallGet($station_id);
+    $result = $apiInstance->stationsStationIdRainfallGet($station_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeasuredValuesApi->stationsStationIdRainfallGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -151,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -165,7 +168,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **stationsStationIdSunshineGet**
-> stationsStationIdSunshineGet($station_id)
+> string stationsStationIdSunshineGet($station_id)
 
 
 
@@ -188,7 +191,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
 $station_id = 789; // int | ID of station from which the data should be returned
 
 try {
-    $apiInstance->stationsStationIdSunshineGet($station_id);
+    $result = $apiInstance->stationsStationIdSunshineGet($station_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeasuredValuesApi->stationsStationIdSunshineGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -203,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -217,7 +221,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **stationsStationIdTemperatureGet**
-> stationsStationIdTemperatureGet($station_id)
+> string stationsStationIdTemperatureGet($station_id)
 
 
 
@@ -240,7 +244,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
 $station_id = 789; // int | ID of station from which the data should be returned
 
 try {
-    $apiInstance->stationsStationIdTemperatureGet($station_id);
+    $result = $apiInstance->stationsStationIdTemperatureGet($station_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeasuredValuesApi->stationsStationIdTemperatureGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -255,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -269,7 +274,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **weatherPostalCodeGet**
-> weatherPostalCodeGet($postal_code)
+> string weatherPostalCodeGet($postal_code)
 
 
 
@@ -292,7 +297,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\MeasuredValuesApi(
 $postal_code = 789; // int | Postal code for the location's forecast
 
 try {
-    $apiInstance->weatherPostalCodeGet($postal_code);
+    $result = $apiInstance->weatherPostalCodeGet($postal_code);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeasuredValuesApi->weatherPostalCodeGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -307,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 

@@ -70,7 +70,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\ForecastApi(
 $postal_code = 789; // int | Postal code for the location's forecast
 
 try {
-    $apiInstance->forecastPostalCodeRainfallGet($postal_code);
+    $result = $apiInstance->forecastPostalCodeRainfallGet($postal_code);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ForecastApi->forecastPostalCodeRainfallGet: ', $e->getMessage(), PHP_EOL;
 }

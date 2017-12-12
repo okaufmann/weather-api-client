@@ -89,11 +89,12 @@ class ForecastApi
      *
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return string
      */
     public function forecastPostalCodeRainfallGet($postal_code)
     {
-        $this->forecastPostalCodeRainfallGetWithHttpInfo($postal_code);
+        list($response) = $this->forecastPostalCodeRainfallGetWithHttpInfo($postal_code);
+        return $response;
     }
 
     /**
@@ -103,11 +104,11 @@ class ForecastApi
      *
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function forecastPostalCodeRainfallGetWithHttpInfo($postal_code)
     {
-        $returnType = '';
+        $returnType = 'string';
         $request = $this->forecastPostalCodeRainfallGetRequest($postal_code);
 
         try {
@@ -138,10 +139,32 @@ class ForecastApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -179,14 +202,28 @@ class ForecastApi
      */
     public function forecastPostalCodeRainfallGetAsyncWithHttpInfo($postal_code)
     {
-        $returnType = '';
+        $returnType = 'string';
         $request = $this->forecastPostalCodeRainfallGetRequest($postal_code);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -315,11 +352,12 @@ class ForecastApi
      *
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return string
      */
     public function forecastPostalCodeTemperatureGet($postal_code)
     {
-        $this->forecastPostalCodeTemperatureGetWithHttpInfo($postal_code);
+        list($response) = $this->forecastPostalCodeTemperatureGetWithHttpInfo($postal_code);
+        return $response;
     }
 
     /**
@@ -329,11 +367,11 @@ class ForecastApi
      *
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function forecastPostalCodeTemperatureGetWithHttpInfo($postal_code)
     {
-        $returnType = '';
+        $returnType = 'string';
         $request = $this->forecastPostalCodeTemperatureGetRequest($postal_code);
 
         try {
@@ -364,10 +402,32 @@ class ForecastApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -405,14 +465,28 @@ class ForecastApi
      */
     public function forecastPostalCodeTemperatureGetAsyncWithHttpInfo($postal_code)
     {
-        $returnType = '';
+        $returnType = 'string';
         $request = $this->forecastPostalCodeTemperatureGetRequest($postal_code);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -540,11 +614,12 @@ class ForecastApi
      *
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return string
      */
     public function locationsGet()
     {
-        $this->locationsGetWithHttpInfo();
+        list($response) = $this->locationsGetWithHttpInfo();
+        return $response;
     }
 
     /**
@@ -553,11 +628,11 @@ class ForecastApi
      *
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function locationsGetWithHttpInfo()
     {
-        $returnType = '';
+        $returnType = 'string';
         $request = $this->locationsGetRequest();
 
         try {
@@ -588,10 +663,32 @@ class ForecastApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -627,14 +724,28 @@ class ForecastApi
      */
     public function locationsGetAsyncWithHttpInfo()
     {
-        $returnType = '';
+        $returnType = 'string';
         $request = $this->locationsGetRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -748,11 +859,12 @@ class ForecastApi
      *
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return string
      */
     public function locationsLocationIdGet($location_id)
     {
-        $this->locationsLocationIdGetWithHttpInfo($location_id);
+        list($response) = $this->locationsLocationIdGetWithHttpInfo($location_id);
+        return $response;
     }
 
     /**
@@ -762,11 +874,11 @@ class ForecastApi
      *
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function locationsLocationIdGetWithHttpInfo($location_id)
     {
-        $returnType = '';
+        $returnType = 'string';
         $request = $this->locationsLocationIdGetRequest($location_id);
 
         try {
@@ -797,10 +909,32 @@ class ForecastApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -838,14 +972,28 @@ class ForecastApi
      */
     public function locationsLocationIdGetAsyncWithHttpInfo($location_id)
     {
-        $returnType = '';
+        $returnType = 'string';
         $request = $this->locationsLocationIdGetRequest($location_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **forecastPostalCodeRainfallGet**
-> forecastPostalCodeRainfallGet($postal_code)
+> string forecastPostalCodeRainfallGet($postal_code)
 
 
 
@@ -34,7 +34,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\ForecastApi(
 $postal_code = 789; // int | Postal code for the location's forecast
 
 try {
-    $apiInstance->forecastPostalCodeRainfallGet($postal_code);
+    $result = $apiInstance->forecastPostalCodeRainfallGet($postal_code);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ForecastApi->forecastPostalCodeRainfallGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -49,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -63,7 +64,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **forecastPostalCodeTemperatureGet**
-> forecastPostalCodeTemperatureGet($postal_code)
+> string forecastPostalCodeTemperatureGet($postal_code)
 
 
 
@@ -86,7 +87,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\ForecastApi(
 $postal_code = 789; // int | Postal code for the location's forecast
 
 try {
-    $apiInstance->forecastPostalCodeTemperatureGet($postal_code);
+    $result = $apiInstance->forecastPostalCodeTemperatureGet($postal_code);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ForecastApi->forecastPostalCodeTemperatureGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -101,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -115,7 +117,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **locationsGet**
-> locationsGet()
+> string locationsGet()
 
 
 
@@ -137,7 +139,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\ForecastApi(
 );
 
 try {
-    $apiInstance->locationsGet();
+    $result = $apiInstance->locationsGet();
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ForecastApi->locationsGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -149,7 +152,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -163,7 +166,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **locationsLocationIdGet**
-> locationsLocationIdGet($location_id)
+> string locationsLocationIdGet($location_id)
 
 
 
@@ -186,7 +189,8 @@ $apiInstance = new Okaufmann\WeatherApiClient\Api\ForecastApi(
 $location_id = 789; // int | ID of location from which the data should be returned
 
 try {
-    $apiInstance->locationsLocationIdGet($location_id);
+    $result = $apiInstance->locationsLocationIdGet($location_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ForecastApi->locationsLocationIdGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -201,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
