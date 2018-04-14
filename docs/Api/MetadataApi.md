@@ -1,15 +1,15 @@
-# Okaufmann\WeatherApiClient\ForecastApi
+# Okaufmann\WeatherApiClient\MetadataApi
 
 All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**forecastLocationIdRainfallGet**](ForecastApi.md#forecastLocationIdRainfallGet) | **GET** /forecast/{location_id}/rainfall | 
-[**forecastLocationIdTemperatureGet**](ForecastApi.md#forecastLocationIdTemperatureGet) | **GET** /forecast/{location_id}/temperature | 
+[**metadataLocationIdGet**](MetadataApi.md#metadataLocationIdGet) | **GET** /metadata/{location_id} | 
+[**metadataSearchQueryTextGet**](MetadataApi.md#metadataSearchQueryTextGet) | **GET** /metadata/search/{query_text} | 
 
 
-# **forecastLocationIdRainfallGet**
-> string forecastLocationIdRainfallGet($location_id)
+# **metadataLocationIdGet**
+> string metadataLocationIdGet($location_id)
 
 
 
@@ -23,14 +23,14 @@ Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
 
-$api_instance = new Okaufmann\WeatherApiClient\Api\ForecastApi();
+$api_instance = new Okaufmann\WeatherApiClient\Api\MetadataApi();
 $location_id = 789; // int | Location ID (e.g. 300005 for Bern)
 
 try {
-    $result = $api_instance->forecastLocationIdRainfallGet($location_id);
+    $result = $api_instance->metadataLocationIdGet($location_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ForecastApi->forecastLocationIdRainfallGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MetadataApi->metadataLocationIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -56,8 +56,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **forecastLocationIdTemperatureGet**
-> string forecastLocationIdTemperatureGet($location_id)
+# **metadataSearchQueryTextGet**
+> string metadataSearchQueryTextGet($query_text)
 
 
 
@@ -71,14 +71,14 @@ Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
 
-$api_instance = new Okaufmann\WeatherApiClient\Api\ForecastApi();
-$location_id = 789; // int | Location ID (e.g. 300005 for Bern)
+$api_instance = new Okaufmann\WeatherApiClient\Api\MetadataApi();
+$query_text = "query_text_example"; // string | Text or number to search a location for
 
 try {
-    $result = $api_instance->forecastLocationIdTemperatureGet($location_id);
+    $result = $api_instance->metadataSearchQueryTextGet($query_text);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ForecastApi->forecastLocationIdTemperatureGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MetadataApi->metadataSearchQueryTextGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -87,7 +87,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **location_id** | **int**| Location ID (e.g. 300005 for Bern) |
+ **query_text** | **string**| Text or number to search a location for |
 
 ### Return type
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

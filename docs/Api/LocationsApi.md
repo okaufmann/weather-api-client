@@ -1,15 +1,15 @@
-# Okaufmann\WeatherApiClient\ForecastApi
+# Okaufmann\WeatherApiClient\LocationsApi
 
 All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**forecastLocationIdRainfallGet**](ForecastApi.md#forecastLocationIdRainfallGet) | **GET** /forecast/{location_id}/rainfall | 
-[**forecastLocationIdTemperatureGet**](ForecastApi.md#forecastLocationIdTemperatureGet) | **GET** /forecast/{location_id}/temperature | 
+[**locationsGet**](LocationsApi.md#locationsGet) | **GET** /locations/ | 
+[**locationsLocationIdGet**](LocationsApi.md#locationsLocationIdGet) | **GET** /locations/{location_id} | 
 
 
-# **forecastLocationIdRainfallGet**
-> string forecastLocationIdRainfallGet($location_id)
+# **locationsGet**
+> string locationsGet()
 
 
 
@@ -23,23 +23,19 @@ Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
 
-$api_instance = new Okaufmann\WeatherApiClient\Api\ForecastApi();
-$location_id = 789; // int | Location ID (e.g. 300005 for Bern)
+$api_instance = new Okaufmann\WeatherApiClient\Api\LocationsApi();
 
 try {
-    $result = $api_instance->forecastLocationIdRainfallGet($location_id);
+    $result = $api_instance->locationsGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ForecastApi->forecastLocationIdRainfallGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LocationsApi->locationsGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_id** | **int**| Location ID (e.g. 300005 for Bern) |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -56,8 +52,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **forecastLocationIdTemperatureGet**
-> string forecastLocationIdTemperatureGet($location_id)
+# **locationsLocationIdGet**
+> string locationsLocationIdGet($location_id)
 
 
 
@@ -71,14 +67,14 @@ Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKey('
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Okaufmann\WeatherApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_token', 'Bearer');
 
-$api_instance = new Okaufmann\WeatherApiClient\Api\ForecastApi();
+$api_instance = new Okaufmann\WeatherApiClient\Api\LocationsApi();
 $location_id = 789; // int | Location ID (e.g. 300005 for Bern)
 
 try {
-    $result = $api_instance->forecastLocationIdTemperatureGet($location_id);
+    $result = $api_instance->locationsLocationIdGet($location_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ForecastApi->forecastLocationIdTemperatureGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LocationsApi->locationsLocationIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

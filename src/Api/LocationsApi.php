@@ -1,6 +1,6 @@
 <?php
 /**
- * ForecastApi
+ * LocationsApi
  * PHP version 5
  *
  * @category Class
@@ -34,14 +34,14 @@ use \Okaufmann\WeatherApiClient\Configuration;
 use \Okaufmann\WeatherApiClient\ObjectSerializer;
 
 /**
- * ForecastApi Class Doc Comment
+ * LocationsApi Class Doc Comment
  *
  * @category Class
  * @package  Okaufmann\WeatherApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ForecastApi
+class LocationsApi
 {
     /**
      * API Client
@@ -79,7 +79,7 @@ class ForecastApi
      *
      * @param \Okaufmann\WeatherApiClient\ApiClient $apiClient set the API client
      *
-     * @return ForecastApi
+     * @return LocationsApi
      */
     public function setApiClient(\Okaufmann\WeatherApiClient\ApiClient $apiClient)
     {
@@ -88,33 +88,27 @@ class ForecastApi
     }
 
     /**
-     * Operation forecastLocationIdRainfallGet
+     * Operation locationsGet
      *
-     * @param int $location_id Location ID (e.g. 300005 for Bern) (required)
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @return string
      */
-    public function forecastLocationIdRainfallGet($location_id)
+    public function locationsGet()
     {
-        list($response) = $this->forecastLocationIdRainfallGetWithHttpInfo($location_id);
+        list($response) = $this->locationsGetWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation forecastLocationIdRainfallGetWithHttpInfo
+     * Operation locationsGetWithHttpInfo
      *
-     * @param int $location_id Location ID (e.g. 300005 for Bern) (required)
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function forecastLocationIdRainfallGetWithHttpInfo($location_id)
+    public function locationsGetWithHttpInfo()
     {
-        // verify the required parameter 'location_id' is set
-        if ($location_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling forecastLocationIdRainfallGet');
-        }
         // parse inputs
-        $resourcePath = "/forecast/{location_id}/rainfall";
+        $resourcePath = "/locations/";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -125,14 +119,6 @@ class ForecastApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
-        // path params
-        if ($location_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "location_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_id),
-                $resourcePath
-            );
-        }
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -154,7 +140,7 @@ class ForecastApi
                 $httpBody,
                 $headerParams,
                 'string',
-                '/forecast/{location_id}/rainfall'
+                '/locations/'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
@@ -171,33 +157,33 @@ class ForecastApi
     }
 
     /**
-     * Operation forecastLocationIdTemperatureGet
+     * Operation locationsLocationIdGet
      *
      * @param int $location_id Location ID (e.g. 300005 for Bern) (required)
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @return string
      */
-    public function forecastLocationIdTemperatureGet($location_id)
+    public function locationsLocationIdGet($location_id)
     {
-        list($response) = $this->forecastLocationIdTemperatureGetWithHttpInfo($location_id);
+        list($response) = $this->locationsLocationIdGetWithHttpInfo($location_id);
         return $response;
     }
 
     /**
-     * Operation forecastLocationIdTemperatureGetWithHttpInfo
+     * Operation locationsLocationIdGetWithHttpInfo
      *
      * @param int $location_id Location ID (e.g. 300005 for Bern) (required)
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function forecastLocationIdTemperatureGetWithHttpInfo($location_id)
+    public function locationsLocationIdGetWithHttpInfo($location_id)
     {
         // verify the required parameter 'location_id' is set
         if ($location_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling forecastLocationIdTemperatureGet');
+            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling locationsLocationIdGet');
         }
         // parse inputs
-        $resourcePath = "/forecast/{location_id}/temperature";
+        $resourcePath = "/locations/{location_id}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -237,7 +223,7 @@ class ForecastApi
                 $httpBody,
                 $headerParams,
                 'string',
-                '/forecast/{location_id}/temperature'
+                '/locations/{location_id}'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];

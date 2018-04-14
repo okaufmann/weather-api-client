@@ -1,6 +1,6 @@
 <?php
 /**
- * ForecastApiTest
+ * MetadataApiTest
  * PHP version 5
  *
  * @category Class
@@ -34,14 +34,14 @@ use \Okaufmann\WeatherApiClient\ApiException;
 use \Okaufmann\WeatherApiClient\ObjectSerializer;
 
 /**
- * ForecastApiTest Class Doc Comment
+ * MetadataApiTest Class Doc Comment
  *
  * @category Class
  * @package  Okaufmann\WeatherApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ForecastApiTest extends \PHPUnit_Framework_TestCase
+class MetadataApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -73,22 +73,22 @@ class ForecastApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for forecastLocationIdRainfallGet
+     * Test case for metadataLocationIdGet
      *
      * .
      *
      */
-    public function testForecastLocationIdRainfallGet()
+    public function testMetadataLocationIdGet()
     {
     }
 
     /**
-     * Test case for forecastLocationIdTemperatureGet
+     * Test case for metadataSearchQueryTextGet
      *
      * .
      *
      */
-    public function testForecastLocationIdTemperatureGet()
+    public function testMetadataSearchQueryTextGet()
     {
     }
 }

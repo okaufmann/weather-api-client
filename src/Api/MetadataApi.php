@@ -1,6 +1,6 @@
 <?php
 /**
- * ForecastApi
+ * MetadataApi
  * PHP version 5
  *
  * @category Class
@@ -34,14 +34,14 @@ use \Okaufmann\WeatherApiClient\Configuration;
 use \Okaufmann\WeatherApiClient\ObjectSerializer;
 
 /**
- * ForecastApi Class Doc Comment
+ * MetadataApi Class Doc Comment
  *
  * @category Class
  * @package  Okaufmann\WeatherApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ForecastApi
+class MetadataApi
 {
     /**
      * API Client
@@ -79,7 +79,7 @@ class ForecastApi
      *
      * @param \Okaufmann\WeatherApiClient\ApiClient $apiClient set the API client
      *
-     * @return ForecastApi
+     * @return MetadataApi
      */
     public function setApiClient(\Okaufmann\WeatherApiClient\ApiClient $apiClient)
     {
@@ -88,33 +88,33 @@ class ForecastApi
     }
 
     /**
-     * Operation forecastLocationIdRainfallGet
+     * Operation metadataLocationIdGet
      *
      * @param int $location_id Location ID (e.g. 300005 for Bern) (required)
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @return string
      */
-    public function forecastLocationIdRainfallGet($location_id)
+    public function metadataLocationIdGet($location_id)
     {
-        list($response) = $this->forecastLocationIdRainfallGetWithHttpInfo($location_id);
+        list($response) = $this->metadataLocationIdGetWithHttpInfo($location_id);
         return $response;
     }
 
     /**
-     * Operation forecastLocationIdRainfallGetWithHttpInfo
+     * Operation metadataLocationIdGetWithHttpInfo
      *
      * @param int $location_id Location ID (e.g. 300005 for Bern) (required)
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function forecastLocationIdRainfallGetWithHttpInfo($location_id)
+    public function metadataLocationIdGetWithHttpInfo($location_id)
     {
         // verify the required parameter 'location_id' is set
         if ($location_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling forecastLocationIdRainfallGet');
+            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling metadataLocationIdGet');
         }
         // parse inputs
-        $resourcePath = "/forecast/{location_id}/rainfall";
+        $resourcePath = "/metadata/{location_id}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -154,7 +154,7 @@ class ForecastApi
                 $httpBody,
                 $headerParams,
                 'string',
-                '/forecast/{location_id}/rainfall'
+                '/metadata/{location_id}'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
@@ -171,48 +171,48 @@ class ForecastApi
     }
 
     /**
-     * Operation forecastLocationIdTemperatureGet
+     * Operation metadataSearchQueryTextGet
      *
-     * @param int $location_id Location ID (e.g. 300005 for Bern) (required)
+     * @param string $query_text Text or number to search a location for (required)
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @return string
      */
-    public function forecastLocationIdTemperatureGet($location_id)
+    public function metadataSearchQueryTextGet($query_text)
     {
-        list($response) = $this->forecastLocationIdTemperatureGetWithHttpInfo($location_id);
+        list($response) = $this->metadataSearchQueryTextGetWithHttpInfo($query_text);
         return $response;
     }
 
     /**
-     * Operation forecastLocationIdTemperatureGetWithHttpInfo
+     * Operation metadataSearchQueryTextGetWithHttpInfo
      *
-     * @param int $location_id Location ID (e.g. 300005 for Bern) (required)
+     * @param string $query_text Text or number to search a location for (required)
      * @throws \Okaufmann\WeatherApiClient\ApiException on non-2xx response
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function forecastLocationIdTemperatureGetWithHttpInfo($location_id)
+    public function metadataSearchQueryTextGetWithHttpInfo($query_text)
     {
-        // verify the required parameter 'location_id' is set
-        if ($location_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling forecastLocationIdTemperatureGet');
+        // verify the required parameter 'query_text' is set
+        if ($query_text === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $query_text when calling metadataSearchQueryTextGet');
         }
         // parse inputs
-        $resourcePath = "/forecast/{location_id}/temperature";
+        $resourcePath = "/metadata/search/{query_text}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         // path params
-        if ($location_id !== null) {
+        if ($query_text !== null) {
             $resourcePath = str_replace(
-                "{" . "location_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_id),
+                "{" . "query_text" . "}",
+                $this->apiClient->getSerializer()->toPathValue($query_text),
                 $resourcePath
             );
         }
@@ -237,7 +237,7 @@ class ForecastApi
                 $httpBody,
                 $headerParams,
                 'string',
-                '/forecast/{location_id}/temperature'
+                '/metadata/search/{query_text}'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
